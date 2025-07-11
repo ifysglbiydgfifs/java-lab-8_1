@@ -6,7 +6,6 @@ public class ConsoleEventLogger extends AbstractLogger {
 
 	@Override
 	public void logEvent(Event event) {
-		System.out.println(event.toString());
+		System.out.println("[CONSOLE] " + event.toString());
 	}
-
 }

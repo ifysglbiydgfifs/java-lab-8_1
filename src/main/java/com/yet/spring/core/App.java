@@ -35,24 +35,25 @@ public class App {
         
         ctx.close();
     }
-    
+
     public void logEvents(ApplicationContext ctx) {
         Event event = ctx.getBean(Event.class);
         logEvent(EventType.INFO, event, "Some event for 1");
-        
+
         event = ctx.getBean(Event.class);
-        logEvent(EventType.INFO, event, "One more event for 1");
-        
+        logEvent(EventType.ERROR, event, "Error for 2");
+
         event = ctx.getBean(Event.class);
-        logEvent(EventType.INFO, event, "And one more event for 1");
-        
+        logEvent(EventType.FATAL, event, "Fatal system failure!");
+
         event = ctx.getBean(Event.class);
-        logEvent(EventType.ERROR, event, "Some event for 2");
-        
+        logEvent(EventType.DEBUG, event, "Debug info for dev");
+
         event = ctx.getBean(Event.class);
-        logEvent(null, event, "Some event for 3");
+        logEvent(null, event, "Some event without type");
     }
-    
+
+
     public App() {}
 
     public App(Client client, EventLogger eventLogger, Map<EventType, EventLogger> loggers) {
